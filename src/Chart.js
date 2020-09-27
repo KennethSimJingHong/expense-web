@@ -74,7 +74,7 @@ function Chart(props){
     return (
         <div>
             <Week showStartWeek={showStartWeek} showEndWeek={showEndWeek} checkPreviousWeek = {checkPreviousWeek} checkNextWeek = {checkNextWeek} weekCount = {weekCount} show = {props.show} />
-            { chart_array.every(item => item === 0) ? <div className="no_result_cnt"><img src={dead} alt="empty"></img> <div className="no_transaction" style={{fontSize:"500%"}}>No result</div></div> :
+            { chart_array.every(item => item === 0) ? <div className="no_result_cnt"><img src={dead} alt="empty"></img> <div className="no_result" style={{fontSize:"500%"}}>No result</div></div> :
                 <div>
                     <BarChart showStartWeek={showStartWeek} chart_array= {chart_array} show = {props.show} />
                     <PieChart category_array= {category_array} show = {props.show} />

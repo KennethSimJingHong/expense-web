@@ -14,6 +14,7 @@ body{
 }
 
 
+
 .dt_cont{
   width:170px;
   height:50px;
@@ -278,10 +279,11 @@ body{
 }
 
 .input_btn_addon{
-  top: 7%;
   width:100%;
   height:50px;
   border-radius: 0px;
+  position: relative;
+  bottom:0;
 }
 
 
@@ -361,10 +363,11 @@ body{
   overflow:scroll;
   box-shadow: -1px -4px 21px -5px rgba(138,138,138,1);
   transition: all 1s ease;
+  overflow: hidden;
 }
 
-.addon{
-  bottom: -50%;
+.detail_cnt_addon{
+  height:80px;
 }
 
 .expand_more{
@@ -410,12 +413,21 @@ margin-top:10px;
 }
 
 .no_transaction{
-  position: relative;
-  top:35%;
+  position: absolute;
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%);
   text-align: center;
   font-size: 40px;
   font-family: 'Grandstander';
 }
+
+.no_result{
+  text-align: center;
+  font-size: 40px;
+  font-family: 'Grandstander';
+}
+
 
 .detail_items li{
   width:90%;

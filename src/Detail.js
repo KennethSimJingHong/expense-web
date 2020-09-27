@@ -54,11 +54,13 @@ function Detail(props){
     }
 
     return( 
-        <div className={"detail_cnt " + (props.show ? "addon" : "")}  >
+        <div className={"detail_cnt " + (props.show ? "detail_cnt_addon" : "")}  >
             {props.show ? 
                 <ExpandLessIcon className= {"expand_more " + (props.show ? "expand_more_addon" : "")} onClick={onClickHandler} /> :
                 <ExpandMoreIcon className="expand_more" onClick={onClickHandler} />
             }
+            {!props.show ? 
+            <div>
             {
                 props.hasTransaction ?
                 
@@ -94,6 +96,7 @@ function Detail(props){
                 :
 
                 <div className="no_transaction">No Transaction...</div>
+            }</div> : <div></div>
             }
             <button className= {"input_btn " + (props.show ? "input_btn_addon" : "")} onClick={props.onClickedhandler}>{props.isOnClicked?<CloseIcon/>:<AddIcon/>} </button>
         </div>
