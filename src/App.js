@@ -3,6 +3,25 @@ import Chart from "./Chart";
 import Input from "./Input";
 import Detail from "./Detail";
 
+
+class App extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {apiResponse:""};
+    }
+
+    callAPI(){
+        fetch("http://localhost:9000/testAPI")
+        .then(res => res.text())
+        .then(res => this.setState({apiResponse: res}));
+    }
+
+    componentWillMount(){
+        this.callAPI();
+    }
+}
+
+
 function App(){
     let category_list = ["Food","Clothes","Grocery"];
     
