@@ -334,12 +334,16 @@ input[type=text], input[type=number], input[type=date]{
   border-bottom: none;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  -webkit-border-bottom-left-radius:0;
+  -webkit-border-bottom-right-radius:0;
 }
 
 .input_cnt input:nth-child(2){
   border-top: none;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+  -webkit-border-top-left-radius:0;
+  -webkit-border-top-right-radius:0;
 }
 
 

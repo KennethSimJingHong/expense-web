@@ -7,7 +7,7 @@ function Input(props){
     const [isChange, setChanged] = useState({
         title:"",
         amount:0,
-        category:"",
+        category:"Food",
         date:"",
         please_specify:""
     });

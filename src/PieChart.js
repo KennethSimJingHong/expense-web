@@ -6,10 +6,16 @@ function PieChart(props){
     let amount = [];
 
     props.category_array.forEach(function(e){
-        category.push(e.category);
+        if(e.category === "other"){
+            category.push(e.please_specify);
+        }else{
+            category.push(e.category);
+        }
         amount.push(e.amount);
     })
 
+    console.log(category)
+    
     let data = {
                 labels: category,
                 datasets: [

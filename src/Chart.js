@@ -41,7 +41,11 @@ function Chart(props){
                     if(category_i !== -1){
                         category_array[category_i].amount = parseFloat(category_array[category_i].amount) + parseFloat(item.amount);
                     }else{
-                        category_array.push({amount:parseFloat(item.amount),category:item.category});
+                        if(item.category === "other"){
+                            category_array.push({amount:parseFloat(item.amount),category:item.category});
+                        }else{
+                            category_array.push({amount:parseFloat(item.amount),specify:item.please_specify,category:item.category});
+                        }
                     }
                 }else{
                     
