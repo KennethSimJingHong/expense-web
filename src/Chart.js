@@ -18,8 +18,7 @@ function Chart(props){
     const [showEndWeek, setShowEndWeek] = useState(currentEndDate);
 
     /* date layout*/
-    let chart_array = [0,0,0,0,0,0,0];
-
+    const chart_array = [0,0,0,0,0,0,0];
     const category_array = [];
 
     /*category array*/
@@ -28,29 +27,33 @@ function Chart(props){
     /* 2. count which week to show */
     let [weekCount, setWeekCount] = useState(0);
 
-    /* rearrange the transaction list in sequence based on date*/
-    const sortedTotalUp = props.totalUp.sort((a, b) => new Date(a.date) - new Date(b.date));
-    sortedTotalUp.forEach(function(item,index){
-        if (
-            new Date(showStartWeek.getFullYear(), showStartWeek.getMonth(), showStartWeek.getDate()) <= new Date(new Date(item.date).getFullYear(), new Date(item.date).getMonth(), new Date(item.date).getDate()) &&
-            new Date(showEndWeek.getFullYear(), showEndWeek.getMonth(), showEndWeek.getDate()) >= new Date(new Date(item.date).getFullYear(), new Date(item.date).getMonth(), new Date(item.date).getDate())
-        ){
-            chart_array[new Date(item.date).getDay()] = item.amount;
-            /* arrange a week amount based on category*/
-            var i =  category_array.map(function(e) {return e.category; }).indexOf(item.category);
-            if(category_array.length !== 0){
-                if(i !== -1){
-                    category_array[index].amount = parseFloat(category_array[index].amount) + parseFloat(item.amount);
+    const addItem = props.addItem.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+    function createChartData(){
+        addItem.forEach(function(item,index){
+            if(
+                new Date(showStartWeek.getFullYear(), showStartWeek.getMonth(), showStartWeek.getDate()) <= new Date(new Date(item.date).getFullYear(), new Date(item.date).getMonth(), new Date(item.date).getDate()) &&
+                new Date(showEndWeek.getFullYear(), showEndWeek.getMonth(), showEndWeek.getDate()) >= new Date(new Date(item.date).getFullYear(), new Date(item.date).getMonth(), new Date(item.date).getDate())
+            ){
+                let category_i = category_array.map(function(e){return e.category; }).indexOf(item.category);
+
+                if(category_array.length !== 0){
+                    if(category_i !== -1){
+                        category_array[category_i].amount = parseFloat(category_array[category_i].amount) + parseFloat(item.amount);
+                    }else{
+                        category_array.push({amount:parseFloat(item.amount),category:item.category});
+                    }
                 }else{
+                    
                     category_array.push({amount:parseFloat(item.amount),category:item.category});
                 }
-            }else{
-                
-                category_array.push({amount:parseFloat(item.amount),category:item.category});
-            } 
-        }
-    })
 
+                chart_array[new Date(item.date).getDay()] = parseFloat(chart_array[new Date(item.date).getDay()]) + parseFloat(item.amount);
+            }
+        })
+    }
+
+    createChartData();
     
     /* check past week transaction*/
     function checkPreviousWeek(){

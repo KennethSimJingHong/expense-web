@@ -226,15 +226,13 @@ body{
 
 .no_result_cnt{
   width:70%;
-  position: absolute;
-  top:20%;
-  left:50%;
-  transform: translate(-50%,0);
+  height:100vh;
+  margin: 0 auto;
 }
 
 .no_result_cnt img{
   width: 100%;
-  margin:50px 0 ;
+  margin:50px auto ;
 }
 
 
@@ -286,6 +284,9 @@ body{
   bottom:0;
 }
 
+input[type=text], input[type=number], input[type=date]{
+  -webkit-appearance: none;
+}
 
 .input_btn:hover{
   background-color: #1e2022;

@@ -4,13 +4,11 @@ import Input from "./Input";
 import Detail from "./Detail";
 
 function App(){
-    let category_list = ["Food","Clothes","Grocery"];
+    const [category_list, setcategory_list] = useState(["Food","Clothes","Grocery"]);
     
     const [isOnClicked, onClickedChange] = useState(false);
 
     const [addItem, setAddItem] = useState([]);
-
-    const totalUp = [];
 
     let [hasTransaction, setHasTransaction] = useState(0);
 
@@ -26,6 +24,7 @@ function App(){
     }
 
     function submitHandler(onAdd){
+        console.log(onAdd)
         setAddItem((prevValue) =>
         {
             return[
@@ -36,7 +35,11 @@ function App(){
         onClickedChange(!isOnClicked);
         setHasTransaction(hasTransaction += 1);
         if(onAdd.category === "other"){
-            category_list.push(onAdd.category);
+            setcategory_list((prevValue)=>{
+                return [
+                    ...prevValue, onAdd.please_specify,
+                ]
+            })
         }
     }
 
@@ -46,28 +49,11 @@ function App(){
         setHasTransaction(hasTransaction -= 1);
     };
 
-    calculation();
-
-    function calculation(){   
-        addItem.forEach(function(item){
-            var index =  totalUp.map(function(e) {return e.date; }).indexOf(item.date);
-            if(totalUp.length !== 0){
-                if(index !== -1){
-                    totalUp[index].amount = parseFloat(totalUp[index].amount) + parseFloat(item.amount);
-                }else{
-                    totalUp.push({date:item.date,amount:parseFloat(item.amount),category:item.category});
-                }
-            }else{
-                
-                totalUp.push({date:item.date,amount:parseFloat(item.amount),category:item.category});
-            }
-        })     
-    }
 
     return(
         <div className="app_body">
 
-            <Chart totalUp = {totalUp} show = {isShrink} />
+            <Chart show = {isShrink} addItem={addItem}/>
 
 
             <Input state = {isOnClicked} onSubmit = {submitHandler} category_list={category_list}/>
