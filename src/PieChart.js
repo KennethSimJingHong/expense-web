@@ -29,8 +29,7 @@ function PieChart(props){
             }
 
     return (
-
-        <div className= {"exp_chart_cont" + (props.show ? "" : "dt_cont_faded")}>
+        <div className= {"exp_chart_cont " + (props.show ? "" : "dt_cont_faded pie_addon")}>
 
             <Doughnut data = {data}/>
         

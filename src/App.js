@@ -49,6 +49,14 @@ function App(){
         setHasTransaction(hasTransaction -= 1);
     };
 
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+        // true for mobile device
+        document.getElementById("html").style.height = "85%";
+
+      }else{
+        // false for not mobile device
+        document.getElementById("html").style.height = "100%";
+      }
 
     return(
         <div className="app_body">

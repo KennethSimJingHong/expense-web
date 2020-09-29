@@ -3,8 +3,8 @@
 
 html{
   height:100%;
+  position: fixed;
 }
-
 
 
 body{
@@ -57,11 +57,18 @@ body{
 }
 
 
+@media screen and (min-height:650px){
+  .dt_cont_faded{
+    transform:translateY(-320px);
+    z-index: -1;
+    opacity:0;
+  }
+}
 
-.dt_cont_faded{
-  transform:translateY(-320px);
-  z-index: -1;
-  opacity: 0;
+@media screen and (max-height:650px){
+  .pie_addon{
+    transform: translateY(-75px);
+  }
 }
 
 .exp_chart_cont{
