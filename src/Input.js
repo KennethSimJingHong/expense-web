@@ -7,7 +7,7 @@ function Input(props){
     const [isChange, setChanged] = useState({
         title:"",
         amount:0,
-        category:"Food",
+        category:"F ood",
         date:"",
         please_specify:""
     });
@@ -48,7 +48,7 @@ function Input(props){
                     }
                     <option value="other">Other</option>
                 </select> 
-                {hasChooseOther && <input type='text' name='please_specify' placeholder='Please specify' onChange={changeHandler}/>
+                {hasChooseOther && <input type="text" name='please_specify' placeholder='Please specify' onChange={changeHandler}/>
                 }  
                 <button className="input_btn ok_btn" onClick={()=> props.onSubmit(isChange)}><CheckIcon/></button>
             </div>

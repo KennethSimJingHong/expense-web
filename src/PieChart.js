@@ -14,7 +14,6 @@ function PieChart(props){
         amount.push(e.amount);
     })
 
-    console.log(category)
     
     let data = {
                 labels: category,
@@ -30,7 +29,7 @@ function PieChart(props){
 
     return (
 
-        <div className= {"exp_chart_cont " + (props.show ? "" : "dt_cont_faded")}>
+        <div className= {"exp_chart_cont" + (props.show ? "" : "dt_cont_faded")}>
 
             <Doughnut data = {data}/>
         

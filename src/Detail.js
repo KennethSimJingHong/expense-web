@@ -72,7 +72,7 @@ function Detail(props){
                                 <div key = {index} id = {index}>
                                     <div className="year_forlist">{item.year}</div>
                                     <div className="month_forlist">{item.month}</div>
-                                    {detail_list(item.title,item.amount,item.date,index)}
+                                    <div className="detail_items_collection">{detail_list(item.title,item.amount,item.date,index)}</div>
                                 </div>
                             )
                         }else if((temp_year === item.year) && (temp_month !== item.month)){

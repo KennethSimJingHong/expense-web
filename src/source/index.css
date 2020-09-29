@@ -56,8 +56,6 @@ body{
 
 
 
-
-
 .dt_cont_faded{
   transform:translateY(-320px);
   z-index: -1;
@@ -76,9 +74,28 @@ body{
   transition: all .5s ease;
 }
 
+.changeChartBtn{
+  width:100px;
+  padding: 5px 0;
+  background-color: #ffffff;
+  border:none;
+  outline:none;
+  cursor: pointer;
+  border-radius:20px;
+  position: absolute;
+  top:2%;
+  left:50%;
+  transform: translate(-50%,0);
+}
+
+.changeChartBtn:hover{
+  background-color: #1e2022;
+  color:#ffffff;
+}
 
 
-@media screen and (min-width:700px){
+
+@media screen and (min-width:700px) {
   .exp_chart_cont{
     width:540px;
     height:320px;
@@ -191,6 +208,7 @@ body{
 }
 
 @media screen and (min-width:700px){
+
   .y_axis{
     width:1px;
     height:250px;
@@ -284,7 +302,7 @@ body{
   bottom:0;
 }
 
-input[type=text], input[type=number], input[type=date]{
+input[type=text], input[type=number], input[type=date] input[type=select]{
   -webkit-appearance: none;
 }
 
@@ -356,6 +374,8 @@ input[type=text], input[type=number], input[type=date]{
 .input_cnt input:nth-child(5){
   border:none;
   border-bottom: 2px solid #1b262c;
+  -webkit-border-bottom-left-radius:0;
+  -webkit-border-bottom-right-radius:0;
 }
 
 .detail_cnt{
@@ -390,9 +410,12 @@ input[type=text], input[type=number], input[type=date]{
 .detail_items{
   list-style-type: none;
   height:80%;
-  overflow: scroll;
   padding:0;
   margin:0;
+}
+
+.detail_items_collection{
+  overflow:scroll;
 }
 
 .year_forlist{

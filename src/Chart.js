@@ -5,6 +5,9 @@ import Week from "./Week";
 import dead from "./source/dead.png";
 
 function Chart(props){
+    /*for small website height, will include a button to show graph*/
+
+    const [changeChart,setChangeChart] = useState("Pie Chart");
 
     /* show today date, first day of this week, & last day of this week*/
     const currentDate = new Date();
@@ -77,15 +80,34 @@ function Chart(props){
             setWeekCount(weekCount -= 1);
         }
     }
+    function onclickHandler(){
+        if(changeChart === "Pie Chart"){
+            setChangeChart("Bar Chart");
+        }else if(changeChart === "Bar Chart"){
+            setChangeChart("Pie Chart");
+        }
+    }
 
     return (
-        <div>
+        <div className="chart_cont">
             <Week showStartWeek={showStartWeek} showEndWeek={showEndWeek} checkPreviousWeek = {checkPreviousWeek} checkNextWeek = {checkNextWeek} weekCount = {weekCount} show = {props.show} />
-            { chart_array.every(item => item === 0) ? <div className="no_result_cnt"><img src={dead} alt="empty"></img> <div className="no_result" style={{fontSize:"500%"}}>No result</div></div> :
-                <div>
-                    <BarChart showStartWeek={showStartWeek} chart_array= {chart_array} show = {props.show} />
-                    <PieChart category_array= {category_array} show = {props.show} />
-                </div>
+            {chart_array.every(item => item === 0) ? <div className="no_result_cnt"><img src={dead} alt="empty"></img> <div className="no_result" style={{fontSize:"500%"}}>No result</div></div> :
+                (
+                (window.innerHeight <= 650) ? 
+                    
+                    <div>
+                        { changeChart === "Pie Chart" && <PieChart category_array= {category_array} show = {props.show} />}
+                        { changeChart === "Bar Chart" && <BarChart showStartWeek={showStartWeek} chart_array= {chart_array} show = {props.show} />}
+                        <button className = "changeChartBtn" onClick={onclickHandler}>{changeChart}</button>
+                    </div>
+
+                :
+
+                    <div>
+                        <BarChart showStartWeek={showStartWeek} chart_array= {chart_array} show = {props.show} />
+                        <PieChart category_array= {category_array} show = {props.show} />
+                    </div>
+                )
             }
 
         </div>
