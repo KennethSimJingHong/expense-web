@@ -7,7 +7,8 @@ function PieChart(props){
 
     props.category_array.forEach(function(e){
         if(e.category === "other"){
-            category.push(e.please_specify);
+
+            category.push(e.specify);
         }else{
             category.push(e.category);
         }

@@ -302,7 +302,7 @@ body{
   bottom:0;
 }
 
-input[type=text], input[type=number], input[type=date] input[type=select]{
+input[type=text], input[type=number], input[type=date], select{
   -webkit-appearance: none;
 }
 

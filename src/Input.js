@@ -34,6 +34,7 @@ function Input(props){
 
     }
 
+
     return(
         <div className={"input_cnt " + (props.state ? "fadein" : "")}>
             <div className="form">
