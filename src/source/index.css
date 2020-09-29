@@ -3,6 +3,7 @@
 
 html{
   height:100vh;
+  position: fixed;
 }
 
 body{
@@ -385,10 +386,13 @@ input[type=text], input[type=number], input[type=date], select{
   position: absolute;
   left:0;
   bottom: 0;
-  overflow:scroll;
   box-shadow: -1px -4px 21px -5px rgba(138,138,138,1);
   transition: all 1s ease;
   overflow: hidden;
+}
+.scroll{
+  overflow: scroll;
+  height: 100%;
 }
 
 .detail_cnt_addon{
@@ -412,10 +416,6 @@ input[type=text], input[type=number], input[type=date], select{
   height:80%;
   padding:0;
   margin:0;
-}
-
-.detail_items_collection{
-  overflow:scroll;
 }
 
 .year_forlist{

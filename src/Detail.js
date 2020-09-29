@@ -53,6 +53,7 @@ function Detail(props){
         )
     }
 
+
     return( 
         <div className={"detail_cnt " + (props.show ? "detail_cnt_addon" : "")}  >
             {props.show ? 
@@ -60,7 +61,7 @@ function Detail(props){
                 <ExpandMoreIcon className="expand_more" onClick={onClickHandler} />
             }
             {!props.show ? 
-            <div>
+            <div className="scroll">
             {
                 props.hasTransaction ?
                 
