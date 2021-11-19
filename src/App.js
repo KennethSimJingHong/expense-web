@@ -34,7 +34,7 @@ function App(){
         });
         onClickedChange(!isOnClicked);
         setHasTransaction(hasTransaction += 1);
-        if((onAdd.category === "other") && (category_list.includes(onAdd.please_specify) == false)){
+        if((onAdd.category === "other") && (category_list.includes(onAdd.please_specify) === false)){
             setcategory_list((prevValue)=>{
                 return [
                     ...prevValue, onAdd.please_specify,
